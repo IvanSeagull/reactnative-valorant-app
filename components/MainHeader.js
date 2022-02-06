@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
   test: {
     fontSize: 30,
     fontFamily: 'Main-font',
+    textTransform: 'uppercase',
     color: '#fff',
     marginLeft: 5,
-    textTransform: 'uppercase',
     // color: 'transparent',
     // textShadowColor: '#fff',
     // textShadowOffset: { width: 0, height: 0 },
