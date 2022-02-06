@@ -24,14 +24,16 @@ const Agents = () => {
     // console.log(res);
     const newArray = [];
     res.map((item) => {
-      newArray.push({
-        name: item.displayName,
-        img: item.fullPortrait,
-        description: item.description,
-        role: item.role,
-        abilities: item.abilities,
-        uuid: item.uuid,
-      });
+      if (item.fullPortrait) {
+        newArray.push({
+          name: item.displayName,
+          img: item.fullPortrait,
+          description: item.description,
+          role: item.role,
+          abilities: item.abilities,
+          uuid: item.uuid,
+        });
+      }
     });
     setAgents(newArray);
   };

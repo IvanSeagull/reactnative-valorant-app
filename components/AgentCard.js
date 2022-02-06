@@ -1,17 +1,14 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 
-// const AgentCard = ({ name, img }) => {
 const AgentCard = ({ agent }) => {
   return (
     <View style={styles.con}>
       <View style={styles.body}>
         <View style={styles.nameCon}>
-          {/* <Text style={styles.Name}>{name && name}</Text> */}
           <Text style={styles.Name}>{agent && agent.item.name}</Text>
         </View>
         <Image
-          //   source={img && { uri: img }}
           source={agent && { uri: agent.item.img }}
           style={{ height: '100%', resizeMode: 'cover', marginLeft: 40 }}
         />
@@ -19,15 +16,14 @@ const AgentCard = ({ agent }) => {
       <View style={styles.abilities}>
         {agent &&
           agent.item.abilities.map((ability, index) => {
-            //   <Image/>
-            console.log(ability);
-            return (
-              <Image
-                key={index}
-                source={ability && { uri: ability.displayIcon }}
-                style={{ width: 23, height: 17 }}
-              />
-            );
+            if (ability.slot != 'Passive')
+              return (
+                <Image
+                  key={index}
+                  source={ability && { uri: ability.displayIcon }}
+                  style={{ width: 23, height: 17 }}
+                />
+              );
           })}
       </View>
     </View>
