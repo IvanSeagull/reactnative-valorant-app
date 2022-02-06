@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, ImageBackground, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  ScrollView,
+  FlatList,
+  SectionList,
+} from 'react-native';
 import React from 'react';
 import MainHeader from '../components/MainHeader';
 import AgentCard from '../components/AgentCard';
@@ -9,8 +17,25 @@ const Agents = () => {
   const [agents, setAgents] = React.useState([]);
 
   React.useEffect(() => {
-    getAgents((res) => setAgents(res));
+    getAgents((res) => shortenObject(res));
   }, []);
+
+  const shortenObject = (res) => {
+    // console.log(res);
+    const newArray = [];
+    res.map((item) => {
+      newArray.push({
+        name: item.displayName,
+        img: item.fullPortrait,
+        description: item.description,
+        role: item.role,
+        abilities: item.abilities,
+        uuid: item.uuid,
+      });
+    });
+    setAgents(newArray);
+  };
+
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -20,15 +45,16 @@ const Agents = () => {
         <MainHeader title="agents" />
 
         <View style={{ marginTop: 30 }}>
-          <ScrollView horizontal style={{ paddingLeft: 20 }}>
-            {/* <AgentCard />
-            <AgentCard />
-            <AgentCard /> */}
-            {agents && agents.map((agent, index) => <AgentCard agent={agent} key={index} />)}
-            <View style={{ height: 20, width: 30 }} />
-          </ScrollView>
+          <FlatList
+            style={{ paddingLeft: 20 }}
+            horizontal
+            data={agents}
+            renderItem={(agent) => {
+              return <AgentCard agent={agent} />;
+            }}
+            keyExtractor={(agent) => agent.uuid}
+          />
         </View>
-        {/* <Text>123</Text> */}
       </ImageBackground>
     </View>
   );
