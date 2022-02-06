@@ -9,9 +9,15 @@ const MainStack = createStackNavigator();
 
 // Screens
 import Main from './screens/Main';
+
+// Agents
 import Agents from './screens/Agents';
 import AgentScreen from './screens/AgentScreen';
 import SkillScreen from './screens/SkillScreen';
+
+// Maps
+import Maps from './screens/Maps';
+import MapCard from './components/MapCard';
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -31,9 +37,13 @@ export default function App() {
             headerShown: false,
           }}>
           <MainStack.Screen name="Main" component={Main} />
+
           <MainStack.Screen name="Agents" component={Agents} />
           <MainStack.Screen name="AgentScreen" component={AgentScreen} />
           <MainStack.Screen name="SkillScreen" component={SkillScreen} />
+
+          <MainStack.Screen name="Maps" component={Maps} />
+          <MainStack.Screen name="MapCard" component={MapCard} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}

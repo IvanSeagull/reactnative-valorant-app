@@ -12,3 +12,15 @@ export const getAgents = (callback) => {
     })
     .then((res) => callback(res.data));
 };
+
+export const getMaps = (callback) => {
+  fetch('https://valorant-api.com/v1/maps')
+    .then((res) => {
+      // console.log(res);
+
+      if (res.status === 200) {
+        return res.json();
+      }
+    })
+    .then((res) => callback(res.data));
+};

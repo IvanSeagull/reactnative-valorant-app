@@ -16,7 +16,7 @@ const Main = () => {
         <MainHeader title="Valorant" />
         <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
           <MenuItem onclick={() => navigation.navigate('Agents')} title="Agents" />
-          <MenuItem title="Maps" />
+          <MenuItem onclick={() => navigation.navigate('Maps')} title="Maps" />
           <MenuItem title="Weapons" />
         </View>
         {/* <Text>123</Text> */}
