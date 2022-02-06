@@ -12,8 +12,10 @@ import MainHeader from '../components/MainHeader';
 import AgentCard from '../components/AgentCard';
 
 import { getAgents } from '../api';
+import { useNavigation } from '@react-navigation/native';
 
 const Agents = () => {
+  const navigation = useNavigation();
   const [agents, setAgents] = React.useState([]);
 
   React.useEffect(() => {
@@ -48,11 +50,23 @@ const Agents = () => {
 
         <View style={{ marginTop: 30 }}>
           <FlatList
+            showsHorizontalScrollIndicator={false}
             style={{ paddingLeft: 20 }}
             horizontal
             data={agents}
             renderItem={(agent) => {
-              return <AgentCard agent={agent} />;
+              //   console.log(agent.index);
+              return (
+                <View style={{ flexDirection: 'row' }}>
+                  <AgentCard
+                    onclick={() => navigation.navigate('AgentScreen', { agent: agent.item })}
+                    agent={agent}
+                  />
+                  {agent.index === agents.length - 1 ? (
+                    <View style={{ width: 30, height: 10 }} />
+                  ) : null}
+                </View>
+              );
             }}
             keyExtractor={(agent) => agent.uuid}
           />

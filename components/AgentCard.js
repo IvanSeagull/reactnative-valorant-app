@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-const AgentCard = ({ agent }) => {
+const AgentCard = ({ agent, onclick }) => {
   return (
-    <View style={styles.con}>
+    <TouchableOpacity onPress={() => onclick()} activeOpacity={0.9} style={styles.con}>
       <View style={styles.body}>
         <View style={styles.nameCon}>
           <Text style={styles.Name}>{agent && agent.item.name}</Text>
@@ -26,7 +26,7 @@ const AgentCard = ({ agent }) => {
               );
           })}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

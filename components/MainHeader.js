@@ -5,10 +5,10 @@ const MainHeader = ({ title }) => {
   return (
     <View style={styles.con}>
       <Image
-        style={{ width: 8, height: 7, marginTop: 10 }}
+        style={{ width: 8, height: 7, marginTop: 5 }}
         source={require('../assets/img/Polygon.png')}
       />
-      <Text style={styles.test}>{title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </View>
   );
 };
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingLeft: 20,
   },
-  test: {
-    fontSize: 30,
+  text: {
+    fontSize: 27,
     fontFamily: 'Main-font',
     textTransform: 'uppercase',
     color: '#fff',

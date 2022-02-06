@@ -10,6 +10,8 @@ const MainStack = createStackNavigator();
 // Screens
 import Main from './screens/Main';
 import Agents from './screens/Agents';
+import AgentScreen from './screens/AgentScreen';
+import SkillScreen from './screens/SkillScreen';
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -30,6 +32,8 @@ export default function App() {
           }}>
           <MainStack.Screen name="Main" component={Main} />
           <MainStack.Screen name="Agents" component={Agents} />
+          <MainStack.Screen name="AgentScreen" component={AgentScreen} />
+          <MainStack.Screen name="SkillScreen" component={SkillScreen} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}
