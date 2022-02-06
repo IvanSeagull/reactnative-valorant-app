@@ -9,6 +9,7 @@ const MainStack = createStackNavigator();
 
 // Screens
 import Main from './screens/Main';
+import Agents from './screens/Agents';
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -22,8 +23,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <Text>Open up App.js to start working on your app!</Text> */}
-      <Main />
+      <NavigationContainer>
+        <MainStack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <MainStack.Screen name="Main" component={Main} />
+          <MainStack.Screen name="Agents" component={Agents} />
+        </MainStack.Navigator>
+
+        {/* <Text>Open up App.js to start working on your app!</Text> */}
+        {/* <Main /> */}
+      </NavigationContainer>
       <StatusBar style="auto" />
     </View>
   );

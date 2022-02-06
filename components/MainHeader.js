@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 
-const MainHeader = () => {
+const MainHeader = ({ title }) => {
   return (
     <View style={styles.con}>
       <Image
         style={{ width: 8, height: 7, marginTop: 10 }}
         source={require('../assets/img/Polygon.png')}
       />
-      <Text style={styles.test}>Valorant</Text>
+      <Text style={styles.test}>{title}</Text>
     </View>
   );
 };
@@ -24,10 +24,11 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   test: {
-    fontSize: 40,
+    fontSize: 30,
     fontFamily: 'Main-font',
     color: '#fff',
     marginLeft: 5,
+    textTransform: 'uppercase',
     // color: 'transparent',
     // textShadowColor: '#fff',
     // textShadowOffset: { width: 0, height: 0 },
