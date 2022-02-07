@@ -1,11 +1,21 @@
-import { StyleSheet, Text, View, ImageBackground, Image, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
+import { useNavigation } from '@react-navigation/native';
 
 const Weapon = ({ route }) => {
   const [weapon, setWeapon] = React.useState(route.params.weapon);
-  console.log(weapon);
+  //   console.log(weapon);
+  const navigation = useNavigation();
   return (
     <View style={styles.con}>
       <ImageBackground
@@ -90,6 +100,22 @@ const Weapon = ({ route }) => {
                 </View>
               ))}
             </View>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SkinsScreen', { uuid: weapon.uuid })}
+              style={{
+                marginTop: 20,
+                alignSelf: 'center',
+                width: 150,
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: 40,
+                backgroundColor: 'black',
+              }}>
+              <Text style={[styles.text, { textTransform: 'uppercase', fontSize: 15 }]}>
+                Get skins
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={{ width: '100%', height: 80 }} />
         </ScrollView>

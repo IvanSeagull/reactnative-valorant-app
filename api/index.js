@@ -36,3 +36,17 @@ export const getWeapons = (callback) => {
     })
     .then((res) => callback(res.data));
 };
+
+export const getSkins = (uuid, callback) => {
+  fetch(`https://valorant-api.com/v1/weapons/${uuid}`)
+    .then((res) => {
+      // console.log(res);
+
+      if (res.status === 200) {
+        return res.json();
+      }
+    })
+    .then((res) => {
+      callback(res.data.skins);
+    });
+};

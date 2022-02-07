@@ -1,22 +1,22 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-const WeaponCard = ({ weapon, onclick }) => {
+const SkinCard = ({ skin }) => {
   return (
-    <TouchableOpacity onPress={() => onclick()} style={styles.con}>
+    <View style={styles.con}>
       <View style={styles.body}>
         <Image
-          source={{ uri: weapon.img }}
+          source={{ uri: skin.img }}
           style={{ height: '75%', resizeMode: 'contain', marginTop: '7%' }}
           //   style={{ width: '75%', resizeMode: 'contain', marginTop: '7%' }}
         />
-        <Text style={styles.name}>{weapon.name}</Text>
+        <Text style={styles.name}>{skin.name}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
-export default WeaponCard;
+export default SkinCard;
 
 const styles = StyleSheet.create({
   con: {
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     color: '#fff',
     position: 'absolute',
-    bottom: -13,
-    left: 20,
-    fontSize: 23,
+    bottom: -6,
+    left: 15,
+    fontSize: 12,
     zIndex: 3,
   },
 });

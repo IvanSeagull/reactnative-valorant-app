@@ -23,6 +23,7 @@ import MapCard from './components/MapCard';
 import Weapons from './screens/Weapons';
 import WeaponsCategoryScreen from './screens/WeaponsCategoryScreen';
 import Weapon from './screens/Weapon';
+import SkinsScreen from './screens/SkinsScreen';
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -53,6 +54,7 @@ export default function App() {
           <MainStack.Screen name="Weapons" component={Weapons} />
           <MainStack.Screen name="WeaponsCategoryScreen" component={WeaponsCategoryScreen} />
           <MainStack.Screen name="Weapon" component={Weapon} />
+          <MainStack.Screen name="SkinsScreen" component={SkinsScreen} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}
