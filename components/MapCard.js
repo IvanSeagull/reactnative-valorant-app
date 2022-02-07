@@ -3,7 +3,7 @@ import React from 'react';
 import Maps from '../screens/Maps';
 
 const MapCard = ({ map }) => {
-  console.log(map);
+  // console.log(map);
   return (
     <View style={styles.con}>
       <ImageBackground resizeMode="cover" style={styles.backImg} source={{ uri: map.item.img }}>

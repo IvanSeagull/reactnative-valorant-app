@@ -22,6 +22,7 @@ import MapCard from './components/MapCard';
 // Weapons
 import Weapons from './screens/Weapons';
 import WeaponsCategoryScreen from './screens/WeaponsCategoryScreen';
+import Weapon from './screens/Weapon';
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -51,6 +52,7 @@ export default function App() {
 
           <MainStack.Screen name="Weapons" component={Weapons} />
           <MainStack.Screen name="WeaponsCategoryScreen" component={WeaponsCategoryScreen} />
+          <MainStack.Screen name="Weapon" component={Weapon} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}
@@ -64,7 +66,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
+    // backgroundColor: 'red',
     // alignItems: 'center',
     // justifyContent: 'center',
   },

@@ -107,15 +107,9 @@ const Weapons = () => {
           shopData: item.shopData,
         });
       }
-      setWeapons(newArray);
-      // setHeavy(newHeavy);
-      // setRifles(newRifles);
-      // setShotguns(newShotguns);
-      // setPistols(newPistols);
-      // setSnipers(newSnipers);
-      // setSmg(newSmg);
     });
-    // setMaps(newArray);
+    // console.log(newArray);
+    setWeapons(newArray);
   };
 
   return (
@@ -125,18 +119,20 @@ const Weapons = () => {
         resizeMode="cover"
         style={styles.backImg}>
         <MainHeader title="weapons" />
-        <View style={{ width: '100%', alignItems: 'center' }}>
+        <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
           <FlatList
             showsVerticalScrollIndicator={false}
             data={categories}
             renderItem={(item) => {
-              // console.log(item, item.index);
-              // console.log(item.index);
+              console.log(item);
               return (
                 <View>
                   <WeaponsCategoryCard
                     onclick={() =>
-                      navigation.navigate('WeaponsCategoryScreen', { weapons: weapons[item.item] })
+                      navigation.navigate('WeaponsCategoryScreen', {
+                        weapons: weapons[item.item],
+                        category: item.item,
+                      })
                     }
                     title={item.item}
                   />
@@ -146,7 +142,7 @@ const Weapons = () => {
                 </View>
               );
             }}
-            keyExtractor={(agent) => agent.uuid}
+            keyExtractor={(item) => item.item}
           />
         </View>
       </ImageBackground>
