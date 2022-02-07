@@ -17,7 +17,7 @@ const Main = () => {
         <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
           <MenuItem onclick={() => navigation.navigate('Agents')} title="Agents" />
           <MenuItem onclick={() => navigation.navigate('Maps')} title="Maps" />
-          <MenuItem title="Weapons" />
+          <MenuItem onclick={() => navigation.navigate('Weapons')} title="Weapons" />
         </View>
         {/* <Text>123</Text> */}
       </ImageBackground>

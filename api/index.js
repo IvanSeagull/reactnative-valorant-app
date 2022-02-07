@@ -24,3 +24,15 @@ export const getMaps = (callback) => {
     })
     .then((res) => callback(res.data));
 };
+
+export const getWeapons = (callback) => {
+  fetch('https://valorant-api.com/v1/weapons')
+    .then((res) => {
+      // console.log(res);
+
+      if (res.status === 200) {
+        return res.json();
+      }
+    })
+    .then((res) => callback(res.data));
+};
