@@ -39,7 +39,7 @@ const SkinsScreen = ({ route }) => {
         <MainHeader title={'Skins'} />
         <FlatList
           showsVerticalScrollIndicator={false}
-          style={{ paddingTop: 20 }}
+          style={{ paddingTop: 25 }}
           data={skins}
           renderItem={(skin) => {
             //   console.log(agent.index);
