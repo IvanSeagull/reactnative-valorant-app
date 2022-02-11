@@ -25,6 +25,9 @@ import WeaponsCategoryScreen from './screens/WeaponsCategoryScreen';
 import Weapon from './screens/Weapon';
 import SkinsScreen from './screens/SkinsScreen';
 
+// Game modes
+import GameModes from './screens/GameModes';
+
 export default function App() {
   let [fontsLoaded, error] = useFonts({
     'Main-font': require('./assets/fonts/DrukWide-Medium.ttf'),
@@ -55,6 +58,8 @@ export default function App() {
           <MainStack.Screen name="WeaponsCategoryScreen" component={WeaponsCategoryScreen} />
           <MainStack.Screen name="Weapon" component={Weapon} />
           <MainStack.Screen name="SkinsScreen" component={SkinsScreen} />
+
+          <MainStack.Screen name="GameModes" component={GameModes} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}

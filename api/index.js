@@ -50,3 +50,13 @@ export const getSkins = (uuid, callback) => {
       callback(res.data.skins);
     });
 };
+
+export const getGameModes = (callback) => {
+  fetch(`${url}/gamemodes`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+    })
+    .then((res) => callback(res.data));
+};

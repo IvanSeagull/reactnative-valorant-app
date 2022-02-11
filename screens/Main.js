@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, ScrollView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -14,11 +14,14 @@ const Main = () => {
         resizeMode="cover"
         style={styles.backImg}>
         <MainHeader title="Valorant" />
-        <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
-          <MenuItem onclick={() => navigation.navigate('Agents')} title="Agents" />
-          <MenuItem onclick={() => navigation.navigate('Maps')} title="Maps" />
-          <MenuItem onclick={() => navigation.navigate('Weapons')} title="Weapons" />
-        </View>
+        <ScrollView>
+          <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
+            <MenuItem onclick={() => navigation.navigate('Agents')} title="Agents" />
+            <MenuItem onclick={() => navigation.navigate('Maps')} title="Maps" />
+            <MenuItem onclick={() => navigation.navigate('Weapons')} title="Weapons" />
+            <MenuItem onclick={() => navigation.navigate('GameModes')} title="Game modes" />
+          </View>
+        </ScrollView>
         {/* <Text>123</Text> */}
       </ImageBackground>
     </View>
