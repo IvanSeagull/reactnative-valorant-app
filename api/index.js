@@ -60,3 +60,13 @@ export const getGameModes = (callback) => {
     })
     .then((res) => callback(res.data));
 };
+
+export const getBundles = (callback) => {
+  fetch(`${url}/bundles`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+    })
+    .then((res) => callback(res.data));
+};

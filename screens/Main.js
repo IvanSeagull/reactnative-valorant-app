@@ -20,6 +20,7 @@ const Main = () => {
             <MenuItem onclick={() => navigation.navigate('Maps')} title="Maps" />
             <MenuItem onclick={() => navigation.navigate('Weapons')} title="Weapons" />
             <MenuItem onclick={() => navigation.navigate('GameModes')} title="Game modes" />
+            <MenuItem onclick={() => navigation.navigate('BundlesScreen')} title="Bundles" />
           </View>
         </ScrollView>
         {/* <Text>123</Text> */}

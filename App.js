@@ -28,6 +28,9 @@ import SkinsScreen from './screens/SkinsScreen';
 // Game modes
 import GameModes from './screens/GameModes';
 
+// Bundles
+import BundlesScreen from './screens/BundlesScreen';
+
 export default function App() {
   let [fontsLoaded, error] = useFonts({
     'Main-font': require('./assets/fonts/DrukWide-Medium.ttf'),
@@ -60,6 +63,8 @@ export default function App() {
           <MainStack.Screen name="SkinsScreen" component={SkinsScreen} />
 
           <MainStack.Screen name="GameModes" component={GameModes} />
+
+          <MainStack.Screen name="BundlesScreen" component={BundlesScreen} />
         </MainStack.Navigator>
 
         {/* <Text>Open up App.js to start working on your app!</Text> */}
