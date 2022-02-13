@@ -3,6 +3,7 @@ import React from 'react';
 
 import MainHeader from '../components/MainHeader';
 import WeaponsCategoryCard from '../components/WeaponsCategoryCard';
+import BottomTab from '../components/BottomTab';
 
 import { getWeapons } from '../api';
 import { useNavigation } from '@react-navigation/native';
@@ -124,7 +125,7 @@ const Weapons = () => {
             showsVerticalScrollIndicator={false}
             data={categories}
             renderItem={(item) => {
-              console.log(item);
+              // console.log(item);
               return (
                 <View>
                   <WeaponsCategoryCard
@@ -137,7 +138,7 @@ const Weapons = () => {
                     title={item.item}
                   />
                   {item.index === categories.length - 1 ? (
-                    <View style={{ width: '100%', height: 80 }} />
+                    <View style={{ width: '100%', height: 130 }} />
                   ) : null}
                 </View>
               );
@@ -145,6 +146,7 @@ const Weapons = () => {
             keyExtractor={(item) => item.item}
           />
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

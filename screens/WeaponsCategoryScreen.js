@@ -3,6 +3,8 @@ import React from 'react';
 
 import MainHeader from '../components/MainHeader';
 import WeaponCard from '../components/WeaponCard';
+import BottomTab from '../components/BottomTab';
+
 import { useNavigation } from '@react-navigation/native';
 
 const WeaponsCategoryScreen = ({ route }) => {
@@ -33,13 +35,14 @@ const WeaponsCategoryScreen = ({ route }) => {
                   weapon={weapon.item}
                 />
                 {weapon.index === weapons.length - 1 ? (
-                  <View style={{ width: '100%', height: 80 }} />
+                  <View style={{ width: '100%', height: 130 }} />
                 ) : null}
               </View>
             );
           }}
           keyExtractor={(weapon) => weapon.uuid}
         />
+        <BottomTab />
       </ImageBackground>
     </View>
   );

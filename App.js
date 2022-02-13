@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -38,7 +38,18 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <Text>Loading</Text>;
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#ff4656',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        {/* <Text>Loading</Text> */}
+        <ActivityIndicator size={40} color={'#1F2326'} />
+      </View>
+    );
   }
 
   return (

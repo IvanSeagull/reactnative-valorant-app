@@ -6,6 +6,7 @@ import MainHeader from '../components/MainHeader';
 import { getGameModes } from '../api';
 
 import GameModesCard from '../components/GameModesCard';
+import BottomTab from '../components/BottomTab';
 
 const GameModes = () => {
   const [data, setData] = React.useState([]);
@@ -54,7 +55,7 @@ const GameModes = () => {
                     mode={mode.item}
                   />
                   {mode.index === data.length - 1 ? (
-                    <View style={{ width: '100%', height: 80 }} />
+                    <View style={{ width: '100%', height: 130 }} />
                   ) : null}
                 </View>
               );
@@ -62,6 +63,7 @@ const GameModes = () => {
             keyExtractor={(mode) => mode.name}
           />
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

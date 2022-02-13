@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
 import React from 'react';
 import MainHeader from '../components/MainHeader';
+import BottomTab from '../components/BottomTab';
 
 const SkillScreen = ({ route }) => {
   const [skill, setSkill] = React.useState(route.params.skill);
@@ -30,6 +31,7 @@ const SkillScreen = ({ route }) => {
             {skill.description}
           </Text>
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

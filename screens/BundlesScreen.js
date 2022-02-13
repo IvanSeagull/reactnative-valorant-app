@@ -3,6 +3,7 @@ import React from 'react';
 
 import MainHeader from '../components/MainHeader';
 import BundlesCard from '../components/BundlesCard';
+import BottomTab from '../components/BottomTab';
 
 import { getBundles } from '../api';
 
@@ -54,6 +55,7 @@ const BundlesScreen = () => {
             keyExtractor={(bundle) => bundle.uuid}
           />
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

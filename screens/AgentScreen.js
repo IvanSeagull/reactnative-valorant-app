@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity } from
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
+import BottomTab from '../components/BottomTab';
+
 import { useNavigation } from '@react-navigation/native';
 
 const AgentScreen = ({ route }) => {
@@ -62,6 +64,7 @@ const AgentScreen = ({ route }) => {
               })}
           </View>
         </View>
+        <BottomTab />
       </ImageBackground>
       {/* <Text></Text> */}
     </View>

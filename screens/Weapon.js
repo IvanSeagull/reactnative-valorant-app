@@ -10,6 +10,8 @@ import {
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
+import BottomTab from '../components/BottomTab';
+
 import { useNavigation } from '@react-navigation/native';
 
 const Weapon = ({ route }) => {
@@ -119,6 +121,7 @@ const Weapon = ({ route }) => {
           </View>
           <View style={{ width: '100%', height: 80 }} />
         </ScrollView>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

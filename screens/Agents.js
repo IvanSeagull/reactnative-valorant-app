@@ -10,6 +10,7 @@ import {
 import React from 'react';
 import MainHeader from '../components/MainHeader';
 import AgentCard from '../components/AgentCard';
+import BottomTab from '../components/BottomTab';
 
 import { getAgents } from '../api';
 import { useNavigation } from '@react-navigation/native';
@@ -71,6 +72,7 @@ const Agents = () => {
             keyExtractor={(agent) => agent.uuid}
           />
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

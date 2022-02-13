@@ -7,6 +7,8 @@ import { getMaps } from '../api';
 import MapCard from '../components/MapCard';
 import { useNavigation } from '@react-navigation/native';
 
+import BottomTab from '../components/BottomTab';
+
 const Maps = () => {
   const navigation = useNavigation();
   const [maps, setMaps] = React.useState([]);
@@ -54,7 +56,7 @@ const Maps = () => {
                     map={map}
                   />
                   {map.index === maps.length - 1 ? (
-                    <View style={{ width: '100%', height: 80 }} />
+                    <View style={{ width: '100%', height: 130 }} />
                   ) : null}
                 </View>
               );
@@ -62,6 +64,7 @@ const Maps = () => {
             keyExtractor={(agent) => agent.uuid}
           />
         </View>
+        <BottomTab />
       </ImageBackground>
     </View>
   );

@@ -6,13 +6,11 @@ import MenuItem from '../components/MenuItem';
 import { useNavigation } from '@react-navigation/native';
 
 const Main = () => {
+  const [img, setImg] = React.useState(require('../assets/img/bg.png'));
   const navigation = useNavigation();
   return (
     <View style={styles.con}>
-      <ImageBackground
-        source={require('../assets/img/bg.png')}
-        resizeMode="cover"
-        style={styles.backImg}>
+      <ImageBackground source={img} resizeMode="cover" style={styles.backImg}>
         <MainHeader title="Valorant" />
         <ScrollView>
           <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>

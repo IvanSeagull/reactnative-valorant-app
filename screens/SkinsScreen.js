@@ -5,6 +5,7 @@ import MainHeader from '../components/MainHeader';
 
 import { getSkins } from '../api';
 import SkinCard from '../components/SkinCard';
+import BottomTab from '../components/BottomTab';
 
 const SkinsScreen = ({ route }) => {
   const [uuid, setUuid] = React.useState(route.params.uuid);
@@ -58,6 +59,7 @@ const SkinsScreen = ({ route }) => {
           }}
           keyExtractor={(skin) => skin.uuid}
         />
+        <BottomTab />
       </ImageBackground>
     </View>
   );
