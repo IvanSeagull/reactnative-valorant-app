@@ -6,6 +6,7 @@ import {
   ScrollView,
   FlatList,
   SectionList,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import MainHeader from '../components/MainHeader';
@@ -47,31 +48,33 @@ const Agents = () => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title="agents" />
+        <SafeAreaView>
+          <MainHeader title="agents" />
 
-        <View style={{ marginTop: 30 }}>
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            style={{ paddingLeft: 20 }}
-            horizontal
-            data={agents}
-            renderItem={(agent) => {
-              //   console.log(agent.index);
-              return (
-                <View style={{ flexDirection: 'row' }}>
-                  <AgentCard
-                    onclick={() => navigation.navigate('AgentScreen', { agent: agent.item })}
-                    agent={agent}
-                  />
-                  {agent.index === agents.length - 1 ? (
-                    <View style={{ width: 30, height: 10 }} />
-                  ) : null}
-                </View>
-              );
-            }}
-            keyExtractor={(agent) => agent.uuid}
-          />
-        </View>
+          <View style={{ marginTop: 30 }}>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              style={{ paddingLeft: 20 }}
+              horizontal
+              data={agents}
+              renderItem={(agent) => {
+                //   console.log(agent.index);
+                return (
+                  <View style={{ flexDirection: 'row' }}>
+                    <AgentCard
+                      onclick={() => navigation.navigate('AgentScreen', { agent: agent.item })}
+                      agent={agent}
+                    />
+                    {agent.index === agents.length - 1 ? (
+                      <View style={{ width: 30, height: 10 }} />
+                    ) : null}
+                  </View>
+                );
+              }}
+              keyExtractor={(agent) => agent.uuid}
+            />
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

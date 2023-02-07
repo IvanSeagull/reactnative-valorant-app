@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -40,30 +40,32 @@ const Maps = () => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title="maps" />
+        <SafeAreaView>
+          <MainHeader title="maps" />
 
-        <View style={{ marginTop: 30 }}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            style={{ paddingLeft: 20 }}
-            data={maps}
-            renderItem={(map) => {
-              //   console.log(agent.index);
-              return (
-                <View>
-                  <MapCard
-                    onclick={() => navigation.navigate('MapCard', { map: map.item })}
-                    map={map}
-                  />
-                  {map.index === maps.length - 1 ? (
-                    <View style={{ width: '100%', height: 130 }} />
-                  ) : null}
-                </View>
-              );
-            }}
-            keyExtractor={(agent) => agent.uuid}
-          />
-        </View>
+          <View style={{ marginTop: 30 }}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              style={{ paddingLeft: 20 }}
+              data={maps}
+              renderItem={(map) => {
+                //   console.log(agent.index);
+                return (
+                  <View>
+                    <MapCard
+                      onclick={() => navigation.navigate('MapCard', { map: map.item })}
+                      map={map}
+                    />
+                    {map.index === maps.length - 1 ? (
+                      <View style={{ width: '100%', height: 130 }} />
+                    ) : null}
+                  </View>
+                );
+              }}
+              keyExtractor={(agent) => agent.uuid}
+            />
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

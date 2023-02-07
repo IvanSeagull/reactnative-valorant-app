@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -32,29 +32,31 @@ const BundlesScreen = () => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title="Bundles" />
-        <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            // style={{ paddingLeft: 20 }}
-            data={bundles}
-            renderItem={(bundle) => {
-              //   console.log(agent.index);
-              return (
-                <View>
-                  <BundlesCard
-                    // onclick={() => navigation.navigate('MapCard', { map: map.item })}
-                    bundle={bundle.item}
-                  />
-                  {bundle.index === bundles.length - 1 ? (
-                    <View style={{ width: '100%', height: 80 }} />
-                  ) : null}
-                </View>
-              );
-            }}
-            keyExtractor={(bundle) => bundle.uuid}
-          />
-        </View>
+        <SafeAreaView>
+          <MainHeader title="Bundles" />
+          <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              // style={{ paddingLeft: 20 }}
+              data={bundles}
+              renderItem={(bundle) => {
+                //   console.log(agent.index);
+                return (
+                  <View>
+                    <BundlesCard
+                      // onclick={() => navigation.navigate('MapCard', { map: map.item })}
+                      bundle={bundle.item}
+                    />
+                    {bundle.index === bundles.length - 1 ? (
+                      <View style={{ width: '100%', height: 80 }} />
+                    ) : null}
+                  </View>
+                );
+              }}
+              keyExtractor={(bundle) => bundle.uuid}
+            />
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

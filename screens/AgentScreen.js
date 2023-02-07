@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -16,54 +24,62 @@ const AgentScreen = ({ route }) => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title={agent.name} />
-        <Image
-          source={{ uri: agent.img }}
-          style={{ height: '45%', resizeMode: 'contain', marginLeft: '10%' }}
-        />
-        <View style={styles.body}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image source={{ uri: agent.role.displayIcon }} style={{ height: 21, width: 21 }} />
-            <Text style={{ fontFamily: 'Main-font', fontSize: 20, color: '#fff', marginLeft: 10 }}>
-              {agent.role.displayName}
+        <SafeAreaView>
+          <MainHeader title={agent.name} />
+          <Image
+            source={{ uri: agent.img }}
+            style={{ height: '45%', resizeMode: 'contain', marginLeft: '10%' }}
+          />
+          <View style={styles.body}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={{ uri: agent.role.displayIcon }} style={{ height: 21, width: 21 }} />
+              <Text
+                style={{ fontFamily: 'Main-font', fontSize: 20, color: '#fff', marginLeft: 10 }}>
+                {agent.role.displayName}
+              </Text>
+            </View>
+            <Text
+              style={{
+                fontFamily: 'Main-font',
+                fontSize: 12,
+                color: '#fff',
+                textAlign: 'center',
+                width: '100%',
+                maxWidth: 310,
+              }}>
+              {agent.description}
             </Text>
-          </View>
-          <Text
-            style={{
-              fontFamily: 'Main-font',
-              fontSize: 12,
-              color: '#fff',
-              textAlign: 'center',
-              width: '100%',
-              maxWidth: 310,
-            }}>
-            {agent.description}
-          </Text>
 
-          <View style={styles.abilities}>
-            {agent &&
-              agent.abilities.map((ability, index) => {
-                if (ability.slot != 'Passive')
-                  return (
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('SkillScreen', { skill: ability })}
-                      activeOpacity={0.8}
-                      style={{
-                        backgroundColor: '#fff',
-                        paddingHorizontal: 10,
-                        paddingVertical: 12,
-                        borderWidth: 2,
-                      }}
-                      key={index}>
-                      <Image
-                        source={ability && { uri: ability.displayIcon }}
-                        style={{ width: 46, height: 34, tintColor: '#000', resizeMode: 'contain' }}
-                      />
-                    </TouchableOpacity>
-                  );
-              })}
+            <View style={styles.abilities}>
+              {agent &&
+                agent.abilities.map((ability, index) => {
+                  if (ability.slot != 'Passive')
+                    return (
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('SkillScreen', { skill: ability })}
+                        activeOpacity={0.8}
+                        style={{
+                          backgroundColor: '#fff',
+                          paddingHorizontal: 10,
+                          paddingVertical: 12,
+                          borderWidth: 2,
+                        }}
+                        key={index}>
+                        <Image
+                          source={ability && { uri: ability.displayIcon }}
+                          style={{
+                            width: 46,
+                            height: 34,
+                            tintColor: '#000',
+                            resizeMode: 'contain',
+                          }}
+                        />
+                      </TouchableOpacity>
+                    );
+                })}
+            </View>
           </View>
-        </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
       {/* <Text></Text> */}

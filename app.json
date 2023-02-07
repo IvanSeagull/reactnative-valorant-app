@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "valorant-app",
-    "slug": "valorant-app",
+    "name": "Valorant Guide",
+    "slug": "valorant-guide",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,6 +20,8 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.ivanseagull.valorantguide",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

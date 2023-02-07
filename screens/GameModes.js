@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -40,29 +40,31 @@ const GameModes = () => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title="game modes" />
-        <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            // style={{ paddingLeft: 20 }}
-            data={data}
-            renderItem={(mode) => {
-              //   console.log(agent.index);
-              return (
-                <View>
-                  <GameModesCard
-                    // onclick={() => navigation.navigate('MapCard', { map: map.item })}
-                    mode={mode.item}
-                  />
-                  {mode.index === data.length - 1 ? (
-                    <View style={{ width: '100%', height: 130 }} />
-                  ) : null}
-                </View>
-              );
-            }}
-            keyExtractor={(mode) => mode.name}
-          />
-        </View>
+        <SafeAreaView>
+          <MainHeader title="game modes" />
+          <View style={{ marginTop: 30, width: '100%', alignItems: 'center' }}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              // style={{ paddingLeft: 20 }}
+              data={data}
+              renderItem={(mode) => {
+                //   console.log(agent.index);
+                return (
+                  <View>
+                    <GameModesCard
+                      // onclick={() => navigation.navigate('MapCard', { map: map.item })}
+                      mode={mode.item}
+                    />
+                    {mode.index === data.length - 1 ? (
+                      <View style={{ width: '100%', height: 130 }} />
+                    ) : null}
+                  </View>
+                );
+              }}
+              keyExtractor={(mode) => mode.name}
+            />
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

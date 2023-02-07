@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -37,28 +37,30 @@ const SkinsScreen = ({ route }) => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title={'Skins'} />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={{ paddingTop: 20 }}
-          data={skins}
-          renderItem={(skin) => {
-            //   console.log(agent.index);
-            return (
-              <View>
-                <SkinCard skin={skin.item} />
-                {/* <MapCard
+        <SafeAreaView>
+          <MainHeader title={'Skins'} />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            style={{ paddingTop: 20 }}
+            data={skins}
+            renderItem={(skin) => {
+              //   console.log(agent.index);
+              return (
+                <View>
+                  <SkinCard skin={skin.item} />
+                  {/* <MapCard
                     onclick={() => navigation.navigate('MapCard', { map: map.item })}
                     map={map}
                   /> */}
-                {skin.index === skins.length - 1 ? (
-                  <View style={{ width: '100%', height: 80 }} />
-                ) : null}
-              </View>
-            );
-          }}
-          keyExtractor={(skin) => skin.uuid}
-        />
+                  {skin.index === skins.length - 1 ? (
+                    <View style={{ width: '100%', height: 80 }} />
+                  ) : null}
+                </View>
+              );
+            }}
+            keyExtractor={(skin) => skin.uuid}
+          />
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

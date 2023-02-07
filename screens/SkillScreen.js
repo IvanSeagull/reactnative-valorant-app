@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, SafeAreaView } from 'react-native';
 import React from 'react';
 import MainHeader from '../components/MainHeader';
 import BottomTab from '../components/BottomTab';
@@ -12,25 +12,27 @@ const SkillScreen = ({ route }) => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title={skill.displayName} />
-        <View style={styles.body}>
-          <Image
-            source={{ uri: skill.displayIcon }}
-            style={{ width: 138, height: 102, resizeMode: 'contain' }}
-          />
-          <Text
-            style={{
-              fontFamily: 'Main-font',
-              fontSize: 12,
-              color: '#fff',
-              textAlign: 'center',
-              width: '100%',
-              maxWidth: 310,
-              marginTop: '10%',
-            }}>
-            {skill.description}
-          </Text>
-        </View>
+        <SafeAreaView>
+          <MainHeader title={skill.displayName} />
+          <View style={styles.body}>
+            <Image
+              source={{ uri: skill.displayIcon }}
+              style={{ width: 138, height: 102, resizeMode: 'contain' }}
+            />
+            <Text
+              style={{
+                fontFamily: 'Main-font',
+                fontSize: 12,
+                color: '#fff',
+                textAlign: 'center',
+                width: '100%',
+                maxWidth: 310,
+                marginTop: '10%',
+              }}>
+              {skill.description}
+            </Text>
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

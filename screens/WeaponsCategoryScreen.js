@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -20,28 +20,30 @@ const WeaponsCategoryScreen = ({ route }) => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title={category} />
-        {/* <WeaponCard weapon={weapons[0]} /> */}
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={{ paddingTop: 30 }}
-          data={weapons}
-          renderItem={(weapon) => {
-            //   console.log(agent.index);
-            return (
-              <View>
-                <WeaponCard
-                  onclick={() => navigation.navigate('Weapon', { weapon: weapon.item })}
-                  weapon={weapon.item}
-                />
-                {weapon.index === weapons.length - 1 ? (
-                  <View style={{ width: '100%', height: 130 }} />
-                ) : null}
-              </View>
-            );
-          }}
-          keyExtractor={(weapon) => weapon.uuid}
-        />
+        <SafeAreaView>
+          <MainHeader title={category} />
+          {/* <WeaponCard weapon={weapons[0]} /> */}
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            style={{ paddingTop: 30 }}
+            data={weapons}
+            renderItem={(weapon) => {
+              //   console.log(agent.index);
+              return (
+                <View>
+                  <WeaponCard
+                    onclick={() => navigation.navigate('Weapon', { weapon: weapon.item })}
+                    weapon={weapon.item}
+                  />
+                  {weapon.index === weapons.length - 1 ? (
+                    <View style={{ width: '100%', height: 130 }} />
+                  ) : null}
+                </View>
+              );
+            }}
+            keyExtractor={(weapon) => weapon.uuid}
+          />
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

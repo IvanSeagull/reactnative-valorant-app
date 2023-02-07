@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../components/MainHeader';
@@ -119,33 +119,35 @@ const Weapons = () => {
         source={require('../assets/img/bg.png')}
         resizeMode="cover"
         style={styles.backImg}>
-        <MainHeader title="weapons" />
-        <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={categories}
-            renderItem={(item) => {
-              // console.log(item);
-              return (
-                <View>
-                  <WeaponsCategoryCard
-                    onclick={() =>
-                      navigation.navigate('WeaponsCategoryScreen', {
-                        weapons: weapons[item.item],
-                        category: item.item,
-                      })
-                    }
-                    title={item.item}
-                  />
-                  {item.index === categories.length - 1 ? (
-                    <View style={{ width: '100%', height: 130 }} />
-                  ) : null}
-                </View>
-              );
-            }}
-            keyExtractor={(item) => item.item}
-          />
-        </View>
+        <SafeAreaView>
+          <MainHeader title="weapons" />
+          <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={categories}
+              renderItem={(item) => {
+                console.log(item);
+                return (
+                  <View>
+                    <WeaponsCategoryCard
+                      onclick={() =>
+                        navigation.navigate('WeaponsCategoryScreen', {
+                          weapons: weapons[item.item],
+                          category: item.item,
+                        })
+                      }
+                      title={item.item}
+                    />
+                    {item.index === categories.length - 1 ? (
+                      <View style={{ width: '100%', height: 130 }} />
+                    ) : null}
+                  </View>
+                );
+              }}
+              keyExtractor={(item) => item.index}
+            />
+          </View>
+        </SafeAreaView>
         <BottomTab />
       </ImageBackground>
     </View>

@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginBottom: 30,
     borderWidth: 3,
+    alignSelf: 'center',
   },
   backImg: {
     flex: 1,
